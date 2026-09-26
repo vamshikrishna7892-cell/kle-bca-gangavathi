@@ -1318,6 +1318,174 @@ footer a:hover{color:#f7c66b}
 .faculty:hover .faculty-photo img{
     transform:scale(1.06);
 }
+
+/* =========================================================
+   FINAL MOBILE RESPONSIVE PATCH
+   Keeps desktop design intact and optimizes phones/tablets
+   ========================================================= */
+html,body{max-width:100%;overflow-x:hidden}
+img{max-width:100%;height:auto}
+button,a{touch-action:manipulation}
+
+@media (max-width: 950px){
+  .container{width:min(94%,760px)}
+  .institutional-inner{grid-template-columns:75px minmax(0,1fr) 75px;gap:8px}
+  .institution-title{min-width:0}
+  .institution-title h1,.institution-title h2,.institution-title p,.institution-title strong{overflow-wrap:anywhere}
+  .nav-menu{max-height:calc(100vh - 76px);overflow:auto}
+  .hero-content{max-width:100%}
+  .subject-grid{grid-template-columns:1fr 1fr}
+}
+
+@media (max-width: 650px){
+  .container{width:calc(100% - 28px)}
+  section{padding:58px 0}
+
+  /* Institutional header */
+  .institutional-inner{
+    grid-template-columns:52px minmax(0,1fr) 52px;
+    min-height:92px;
+    gap:6px;
+    padding:7px 0 10px;
+  }
+  .institutional-header:after{height:18px;bottom:-10px}
+  .institution-logo{height:56px;min-width:0}
+  .institution-logo img{width:100%;height:56px;object-fit:contain}
+  .institution-title{padding:0 2px}
+  .society-name{font-size:8px;letter-spacing:.1px;white-space:nowrap}
+  .institution-title h1{font-size:10px;line-height:1.16;margin:2px 0}
+  .institution-title h2{font-size:10px;line-height:1.15}
+  .institution-title p,.institution-title strong{font-size:7.5px;line-height:1.2}
+
+  /* Navigation */
+  .nav-inner{min-height:62px}
+  .brand{gap:8px;min-width:0}
+  .brand .logo{width:40px;height:40px;border-radius:11px;font-size:11px;flex:0 0 40px}
+  .brand-text{min-width:0}
+  .brand-text strong{font-size:14px;white-space:nowrap}
+  .brand-text span{font-size:9px;white-space:nowrap}
+  .menu-toggle{font-size:25px;padding:8px 2px}
+  .nav-menu{top:62px;padding:14px;gap:2px;border-top:1px solid #eadcc4}
+  .nav-menu a{width:100%;padding:11px 10px;font-size:14px;border-radius:10px}
+  .nav-menu a:hover{background:#fff8ec}
+  .nav-btn{text-align:center;margin-top:4px}
+
+  /* Hero */
+  .hero{min-height:640px;padding:0;display:flex;align-items:center}
+  .hero-content{padding:72px 0 85px}
+  .hero .badge{font-size:9px;line-height:1.35;padding:7px 10px;max-width:100%}
+  .hero h1{font-size:clamp(38px,12vw,52px);letter-spacing:-2.4px;margin:18px 0 18px}
+  .hero p{font-size:14px;line-height:1.65;max-width:100%}
+  .hero-actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:25px}
+  .hero-actions .btn{width:100%;min-height:48px;padding:13px 16px}
+  .hero-orb{display:none}
+  .hero:after{width:360px;height:360px;right:-235px;top:-100px}
+
+  /* Stats */
+  .stats{margin-top:-32px;padding-bottom:8px}
+  .stats-grid{grid-template-columns:1fr 1fr;border-radius:17px}
+  .stat{padding:18px 9px;min-height:95px;display:flex;flex-direction:column;justify-content:center}
+  .stat strong{font-size:24px}
+  .stat span{font-size:9px;line-height:1.35}
+
+  /* Section headings */
+  .section-head{margin-bottom:32px}
+  .section-head h2{font-size:29px;line-height:1.18}
+  .section-head p{font-size:13px;line-height:1.6}
+
+  /* About / cards */
+  .about-grid,.events-grid,.contact-grid{grid-template-columns:1fr;gap:24px}
+  .about-visual{min-height:330px;padding:20px;border-radius:21px}
+  .visual-box{margin-top:45px;padding:18px}
+  .visual-box h3{font-size:22px}
+  .about-copy h3{font-size:26px}
+  .about-copy p{font-size:13px}
+  .check{font-size:13px}
+  .program-grid,.faculty-grid,.features,.footer-grid{grid-template-columns:1fr}
+  .card{padding:22px}
+
+  /* Campus slideshow */
+  .campus-slideshow{height:58vw;min-height:260px;max-height:390px;margin-top:25px;border-radius:18px}
+  .slide-content{left:18px;right:18px;bottom:34px;max-width:none}
+  .slide-content span{font-size:8px;padding:5px 9px;margin-bottom:7px}
+  .slide-content h3{font-size:21px;line-height:1.15}
+  .slide-content p{font-size:11px;line-height:1.45;max-width:95%}
+  .slide-btn{width:36px;height:36px;font-size:15px}
+  .slide-prev{left:8px}.slide-next{right:8px}
+  .slide-dots{bottom:11px;gap:6px}
+  .slide-dot{width:7px;height:7px}.slide-dot.active{width:20px}
+
+  /* Gallery fallback */
+  .gallery{grid-template-columns:1fr;gap:14px}
+  .gallery-card{height:235px;border-radius:17px}
+  .gallery-overlay{padding:18px}
+  .gallery-overlay h3{font-size:17px}.gallery-overlay p{font-size:11px}
+
+  /* Faculty */
+  .faculty-photo{height:280px}
+  .faculty-info{padding:17px}
+
+  /* Events / notices */
+  .event-main{min-height:310px;padding:24px;border-radius:20px}
+  .event-main h3{font-size:27px}
+  .event-main p{font-size:13px}
+  .event-item{padding:15px;gap:11px}
+  .notice-grid{grid-template-columns:1fr;gap:16px}
+  .notice-box{padding:20px}
+  .notice{display:block;padding:13px 0}
+  .notice span,.notice b{display:block}.notice b{margin-top:3px}
+
+  /* Notes */
+  .semester-tabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding:2px 2px 8px;margin:-5px auto 20px;scrollbar-width:none}
+  .semester-tabs::-webkit-scrollbar{display:none}
+  .semester-tab{flex:0 0 auto;padding:10px 14px;font-size:12px}
+  .notes-toolbar{padding:14px;margin-bottom:16px}
+  .notes-count{font-size:12px}.notes-subtitle{display:block;margin:4px 0 0;font-size:11px}
+  .notes-search{width:100%;margin-top:11px}
+  .subject-grid{grid-template-columns:1fr;gap:14px}
+  .subject-card{display:flex;gap:11px;padding:17px;min-height:0;border-radius:17px}
+  .subject-icon{flex:0 0 40px;height:40px;font-size:11px}
+  .subject-card h3{font-size:17px}
+  .subject-card p{font-size:11px;line-height:1.5}
+  .resource-list{gap:6px}
+  .resource-btn{padding:8px 9px;font-size:10px;min-height:34px}
+  .github-note{padding:15px;gap:10px}
+  .github-note p{font-size:10px;line-height:1.5}
+
+  /* CTA/contact/forms */
+  .cta{padding:28px 22px;border-radius:21px}
+  .cta h2{font-size:27px}
+  .cta p{font-size:13px}
+  .cta .btn{width:100%;margin-top:18px}
+  .contact-card,form{padding:22px;border-radius:20px}
+  .contact-card h3{font-size:24px}
+  .contact-item p{font-size:13px;overflow-wrap:anywhere}
+  .form-grid{grid-template-columns:1fr;gap:13px}
+  .field.full{grid-column:auto}
+  input,textarea,select{font-size:16px}
+
+  /* Footer */
+  footer{padding:42px 0 18px}
+  .footer-grid{gap:25px}
+  .footer-bottom{display:block;text-align:center;margin-top:30px;padding-top:15px}
+  .footer-bottom span{display:block;margin-top:7px}
+}
+
+@media (max-width:380px){
+  .container{width:calc(100% - 22px)}
+  .institutional-inner{grid-template-columns:45px minmax(0,1fr) 45px}
+  .institution-logo,.institution-logo img{height:48px}
+  .institution-title h1{font-size:9px}.institution-title h2{font-size:9px}
+  .institution-title p,.institution-title strong{font-size:7px}
+  .brand-text span{display:none}
+  .hero{min-height:610px}
+  .hero h1{font-size:36px}
+  .stat{padding:15px 6px}.stat strong{font-size:22px}
+  .stat span{font-size:8px}
+  .subject-card{padding:14px}.subject-card h3{font-size:16px}
+  .resource-btn{font-size:9px;padding:7px 8px}
+}
+
 </style>
 </head>
 
