@@ -1,0 +1,2408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Department of Bachelor of Computer Applications - Modern BCA Department Website">
+<title>KLE Society's BCA Department | Gangavathi</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* =========================================
+   CAMPUS AUTOMATIC SLIDESHOW
+========================================= */
+
+.campus-slideshow {
+  position: relative;
+
+  width: 100%;
+  height: 600px;
+
+  margin-top: 45px;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background: #160b06;
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.18);
+}
+
+
+/* SLIDES */
+
+.campus-slide {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform: scale(1.03);
+
+  transition:
+    opacity .8s ease,
+    transform 5s ease,
+    visibility .8s ease;
+}
+
+
+.campus-slide.active {
+
+  opacity: 1;
+
+  visibility: visible;
+
+  transform: scale(1);
+}
+
+
+/* IMAGE */
+
+.campus-slide img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* DARK IMAGE GRADIENT */
+
+.campus-slide::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,.78) 0%,
+      rgba(0,0,0,.30) 42%,
+      rgba(0,0,0,.05) 75%
+    );
+
+  pointer-events: none;
+}
+
+
+/* TEXT */
+
+.slide-content {
+
+  position: absolute;
+
+  left: 55px;
+  bottom: 55px;
+
+  z-index: 3;
+
+  max-width: 600px;
+
+  color: white;
+}
+
+
+.slide-content span {
+
+  display: inline-block;
+
+  padding: 7px 15px;
+
+  border-radius: 30px;
+
+  background: #e85d04;
+
+  color: white;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 12px;
+}
+
+
+.slide-content h3 {
+
+  margin: 0 0 8px;
+
+  font-size: 36px;
+
+  line-height: 1.1;
+
+  font-weight: 800;
+}
+
+
+.slide-content p {
+
+  margin: 0;
+
+  font-size: 16px;
+
+  line-height: 1.6;
+
+  color: rgba(255,255,255,.90);
+}
+
+
+/* =========================================
+   PREVIOUS / NEXT BUTTONS
+========================================= */
+
+.slide-btn {
+
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  z-index: 5;
+
+  width: 48px;
+  height: 48px;
+
+  border: 1px solid rgba(255,255,255,.35);
+
+  border-radius: 50%;
+
+  background: rgba(0,0,0,.35);
+
+  backdrop-filter: blur(10px);
+
+  color: white;
+
+  font-size: 22px;
+
+  cursor: pointer;
+
+  transition: .3s ease;
+}
+
+
+.slide-btn:hover {
+
+  background: #e85d04;
+
+  transform:
+    translateY(-50%)
+    scale(1.08);
+}
+
+
+.slide-prev {
+  left: 25px;
+}
+
+
+.slide-next {
+  right: 25px;
+}
+
+
+/* =========================================
+   DOTS
+========================================= */
+
+.slide-dots {
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 22px;
+
+  transform: translateX(-50%);
+
+  z-index: 6;
+
+  display: flex;
+
+  gap: 8px;
+}
+
+
+.slide-dot {
+
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.55);
+
+  cursor: pointer;
+
+  transition: .3s ease;
+}
+
+
+.slide-dot.active {
+
+  width: 28px;
+
+  border-radius: 10px;
+
+  background: #ff7900;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .campus-slideshow {
+
+    height: 430px;
+
+    border-radius: 20px;
+
+  }
+
+
+  .slide-content {
+
+    left: 25px;
+
+    right: 25px;
+
+    bottom: 45px;
+
+  }
+
+
+  .slide-content h3 {
+
+    font-size: 25px;
+
+  }
+
+
+  .slide-content p {
+
+    font-size: 13px;
+
+  }
+
+
+  .slide-btn {
+
+    width: 40px;
+
+    height: 40px;
+
+    font-size: 17px;
+
+  }
+
+
+  .slide-prev {
+
+    left: 12px;
+
+  }
+
+
+  .slide-next {
+
+    right: 12px;
+
+  }
+
+}
+
+ :root{
+  --navy:#241b12;
+  --blue:#c90201;      /* retained variable name internally; now KLE emblem red */
+  --blue2:#e03605;     /* emblem red-orange */
+  --orange:#f36f05;    /* emblem orange */
+  --orange2:#d49d3a;   /* emblem gold */
+  --red:#c90201;
+  --gold:#d49d3a;
+  --cream:#fffaf0;
+  --white:#fffdf8;
+  --text:#241b12;
+  --muted:#66594b;
+  --bg:#faf6ed;
+  --card:#fffdf8;
+  --border:#eadcc4;
+  --shadow:0 20px 70px rgba(79,43,11,.13);
+  --radius:24px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin:auto}
+.topbar{
+  background:linear-gradient(90deg,#c90201,#a90000);
+  color:#dce7ff;
+  font-size:13px;
+}
+.topbar .container{
+  display:flex;justify-content:space-between;gap:20px;
+  padding:9px 0;
+}
+.top-links{display:flex;gap:20px;flex-wrap:wrap}
+.navbar{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(231,235,242,.8);
+}
+.nav-inner{
+  min-height:76px;display:flex;align-items:center;justify-content:space-between;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+  width:48px;height:48px;border-radius:14px;
+  display:grid;place-items:center;color:#fff;font-weight:800;
+  background:linear-gradient(135deg,var(--blue),var(--orange));
+  box-shadow:0 10px 25px rgba(17,103,232,.25);
+}
+.brand-text strong{display:block;font-family:"Space Grotesk";font-size:17px}
+.brand-text span{font-size:11px;color:var(--muted)}
+.nav-menu{display:flex;align-items:center;gap:25px}
+.nav-menu a{font-size:14px;font-weight:600;color:#344054;transition:.25s}
+.nav-menu a:hover{color:var(--blue)}
+.nav-btn{
+  background:var(--blue);color:#fff!important;padding:11px 17px;border-radius:11px;
+}
+.menu-toggle{display:none;border:0;background:none;font-size:27px;cursor:pointer}
+
+.hero{
+  position:relative;overflow:hidden;
+  min-height:690px;
+  display:flex;align-items:center;
+  background:
+    radial-gradient(circle at 85% 25%,rgba(76,154,255,.28),transparent 28%),
+    radial-gradient(circle at 10% 80%,rgba(255,122,24,.15),transparent 28%),
+    var(--navy);
+  color:#fff;
+}
+.hero:before{
+  content:"";position:absolute;inset:0;opacity:.13;
+  background-image:linear-gradient(rgba(255,255,255,.2) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.2) 1px,transparent 1px);
+  background-size:55px 55px;
+}
+.hero-content{position:relative;z-index:2;max-width:730px;padding:85px 0}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 13px;border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;background:rgba(255,255,255,.07);
+  font-size:12px;font-weight:700;color:#dbe8ff;
+}
+.badge i{width:7px;height:7px;background:#44e37d;border-radius:50%}
+.hero h1{
+  font-family:"Space Grotesk";font-size:clamp(44px,6vw,76px);
+  line-height:1.02;margin:23px 0 22px;letter-spacing:-3px;
+}
+.hero h1 span{color:#f7c66b}
+.hero p{font-size:18px;color:#eadcc4;max-width:650px}
+.hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:32px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:14px 21px;border-radius:13px;font-weight:700;font-size:14px;
+  border:1px solid transparent;transition:.25s;cursor:pointer;
+}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 12px 28px rgba(255,122,24,.25)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-light{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.18)}
+.hero-orb{
+  position:absolute;right:7%;top:23%;width:350px;height:350px;border-radius:50%;
+  background:linear-gradient(145deg,rgba(76,154,255,.22),rgba(255,122,24,.09));
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:inset 0 0 80px rgba(255,255,255,.05),0 0 100px rgba(76,154,255,.10);
+}
+.code-card{
+  position:absolute;right:8%;top:31%;z-index:3;width:310px;
+  background:rgba(10,26,54,.85);border:1px solid rgba(255,255,255,.15);
+  border-radius:18px;padding:20px;box-shadow:0 30px 80px rgba(0,0,0,.25);
+  font-family:monospace;color:#cfe1ff;font-size:13px;
+}
+.code-top{display:flex;gap:6px;margin-bottom:17px}
+.dot{width:8px;height:8px;border-radius:50%;background:#8091ad}
+.code-line{margin:6px 0}.orange{color:#ffb15c}.blue{color:#f7c66b}.green{color:#67df9b}
+
+.stats{
+  margin-top:-42px;position:relative;z-index:5;
+}
+.stats-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:#fff;border:1px solid var(--border);border-radius:20px;
+  box-shadow:var(--shadow);overflow:hidden;
+}
+.stat{padding:28px;text-align:center;border-right:1px solid var(--border)}
+.stat:last-child{border-right:0}
+.stat strong{font-family:"Space Grotesk";font-size:30px;color:var(--blue)}
+.stat span{display:block;font-size:12px;color:var(--muted);margin-top:4px;font-weight:600}
+
+section{padding:95px 0}
+.section-head{text-align:center;max-width:700px;margin:0 auto 48px}
+.eyebrow{
+  color:var(--orange);font-size:12px;font-weight:800;
+  letter-spacing:1.6px;text-transform:uppercase;
+}
+.section-head h2{
+  font-family:"Space Grotesk";font-size:40px;line-height:1.15;
+  letter-spacing:-1px;margin:10px 0 13px;color:var(--navy)
+}
+.section-head p{color:var(--muted)}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.about-visual{
+  min-height:430px;border-radius:28px;
+  background:linear-gradient(145deg,#241b12,#9d0000);
+  position:relative;overflow:hidden;padding:30px;color:#fff;
+}
+.about-visual:after{
+  content:"BCA";position:absolute;right:-15px;bottom:-50px;
+  font-family:"Space Grotesk";font-size:180px;font-weight:800;color:rgba(255,255,255,.05)
+}
+.visual-box{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  padding:23px;border-radius:18px;margin-top:70px;position:relative;z-index:2
+}
+.visual-box h3{font-family:"Space Grotesk";font-size:26px;margin-bottom:9px}
+.about-copy h3{font-family:"Space Grotesk";font-size:31px;color:var(--navy);margin-bottom:16px}
+.about-copy p{color:var(--muted);margin-bottom:17px}
+.checks{display:grid;gap:11px;margin-top:22px}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;font-weight:600}
+.check b{color:var(--orange)}
+
+.program-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px;box-shadow:0 8px 30px rgba(7,21,47,.045);
+  transition:.3s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.icon{
+  width:52px;height:52px;border-radius:15px;display:grid;place-items:center;
+  background:#fff1df;color:var(--blue);font-size:22px;margin-bottom:21px;
+}
+.card h3{font-family:"Space Grotesk";font-size:21px;margin-bottom:9px}
+.card p{font-size:14px;color:var(--muted)}
+.card a{display:inline-block;margin-top:18px;color:var(--blue);font-size:13px;font-weight:800}
+
+.feature-band{background:#eef5ff}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.feature{text-align:center;background:#fff;padding:28px 18px;border-radius:18px;border:1px solid #e1eaf8}
+.feature .num{font-family:"Space Grotesk";font-size:31px;color:var(--blue);font-weight:700}
+.feature p{font-size:12px;color:var(--muted);font-weight:600}
+
+.faculty-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.faculty{overflow:hidden;padding:0}
+.faculty-photo{
+  height:205px;background:linear-gradient(145deg,#dbe9ff,#f7d8bf);
+  display:grid;place-items:center;font-family:"Space Grotesk";font-size:45px;font-weight:800;color:#fff;
+}
+.faculty-info{padding:20px}.faculty-info h3{font-size:17px}.faculty-info p{font-size:12px;color:var(--muted);margin-top:4px}
+.tag{display:inline-block;margin-top:12px;padding:5px 9px;border-radius:8px;background:#f1f5f9;color:#475467;font-size:10px;font-weight:700}
+
+.events-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:25px}
+.event-main{
+  min-height:390px;border-radius:25px;padding:32px;color:#fff;
+  background:linear-gradient(135deg,#241b12,#a90000);
+  position:relative;overflow:hidden;
+}
+.event-main:after{content:"";position:absolute;width:230px;height:230px;border-radius:50%;right:-80px;bottom:-80px;border:50px solid rgba(255,255,255,.06)}
+.event-main .date{font-size:12px;font-weight:800;color:#a9cbff}
+.event-main h3{font-family:"Space Grotesk";font-size:34px;max-width:500px;margin:20px 0 10px}
+.event-main p{color:#eadcc4;max-width:540px}
+.event-list{display:grid;gap:12px}
+.event-item{background:#fff;border:1px solid var(--border);border-radius:16px;padding:19px;display:flex;gap:15px}
+.event-date{min-width:53px;height:53px;border-radius:12px;background:#fff1df;color:var(--blue);display:grid;place-items:center;font-size:11px;font-weight:800;text-align:center}
+.event-item h4{font-size:14px}.event-item p{font-size:12px;color:var(--muted)}
+
+.notice-area{background:linear-gradient(90deg,#c90201,#a90000);color:#fff}
+.notice-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.notice-box{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);border-radius:20px;padding:26px}
+.notice-box h3{font-family:"Space Grotesk";margin-bottom:18px}
+.notice{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.09);display:flex;justify-content:space-between;gap:15px}
+.notice:last-child{border:0}.notice span{font-size:12px;color:#cbb99e}.notice b{font-size:13px}
+
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:155px;gap:14px}
+.gallery div{
+  border-radius:18px;background:linear-gradient(135deg,#c90201,#e7b35a);
+  display:flex;align-items:flex-end;padding:17px;color:#fff;font-weight:800;
+  position:relative;overflow:hidden;
+}
+.gallery div:nth-child(2){grid-row:span 2;background:linear-gradient(135deg,#ff7a18,#ffd08e)}
+.gallery div:nth-child(3){grid-column:span 2;background:linear-gradient(135deg,#241b12,#a90000)}
+.gallery div:nth-child(5){grid-column:span 2;background:linear-gradient(135deg,#173c2c,#69a77f)}
+
+.cta{
+  background:linear-gradient(135deg,#ff7a18,#ff9c43);color:#fff;
+  border-radius:28px;padding:52px;display:flex;align-items:center;justify-content:space-between;gap:25px
+}
+.cta h2{font-family:"Space Grotesk";font-size:34px;line-height:1.15}
+.cta p{margin-top:8px;color:#fff0e3}
+.cta .btn{background:#fff;color:#c85c00}
+
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px}
+.contact-card{background:linear-gradient(90deg,#c90201,#a90000);color:#fff;border-radius:25px;padding:32px}
+.contact-card h3{font-family:"Space Grotesk";font-size:27px;margin-bottom:12px}
+.contact-item{padding:17px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.contact-item small{color:#91a5c6}.contact-item p{font-size:14px;margin-top:3px}
+form{background:#fff;border:1px solid var(--border);border-radius:25px;padding:32px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:grid;gap:7px}.field.full{grid-column:1/-1}
+label{font-size:12px;font-weight:800}
+input,textarea,select{
+  width:100%;border:1px solid var(--border);border-radius:11px;padding:13px;
+  font:inherit;outline:none;background:#fbfcfe
+}
+textarea{min-height:130px;resize:vertical}
+input:focus,textarea:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(17,103,232,.09)}
+
+footer{background:#241b12;color:#b9c8e8;padding:55px 0 20px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:35px}
+footer h4{color:#fff;margin-bottom:15px;font-family:"Space Grotesk"}
+footer p,footer a{font-size:13px;display:block;margin:7px 0}
+.footer-bottom{margin-top:40px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;display:flex;justify-content:space-between}
+
+.reveal{opacity:0;transform:translateY(25px);transition:.7s ease}
+.reveal.show{opacity:1;transform:none}
+
+@media(max-width:950px){
+  .nav-menu{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;padding:18px 4%;box-shadow:0 15px 30px rgba(0,0,0,.08);flex-direction:column;align-items:flex-start}
+  .nav-menu.open{display:flex}.menu-toggle{display:block}
+  .hero-orb,.code-card{display:none}
+  .about-grid,.events-grid,.contact-grid{grid-template-columns:1fr}
+  .program-grid{grid-template-columns:1fr 1fr}
+  .faculty-grid{grid-template-columns:1fr 1fr}
+  .features{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:650px){
+  .topbar{display:none}
+  .hero{min-height:610px}.hero-content{padding:70px 0}
+  .hero h1{font-size:45px;letter-spacing:-2px}
+  .hero p{font-size:15px}
+  .stats-grid{grid-template-columns:1fr 1fr}.stat{border-bottom:1px solid var(--border)}
+  .stat:nth-child(2){border-right:0}.stat:nth-child(3){border-bottom:0}.stat:nth-child(4){border-bottom:0;border-right:0}
+  section{padding:70px 0}
+  .section-head h2{font-size:32px}
+  .program-grid,.faculty-grid,.features,.footer-grid{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:140px}
+  .gallery div:nth-child(2){grid-row:span 1}.gallery div:nth-child(3),.gallery div:nth-child(5){grid-column:span 1}
+  .cta{padding:32px;display:block}.cta .btn{margin-top:20px}
+  .form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}
+  .footer-bottom{display:block}.footer-bottom span{display:block;margin-top:7px}
+}
+
+.institutional-header{
+  background:#fff;
+  border-bottom:4px solid var(--blue);
+}
+.institutional-inner{
+  min-height:155px;
+  display:grid;
+  grid-template-columns:130px 1fr 150px;
+  align-items:center;
+  gap:22px;
+  padding:15px 0;
+}
+.institution-logo{
+  height:125px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.institution-logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+.institution-title{text-align:center;line-height:1.15}
+.society-name{
+  color:#c90201;
+  font-family:"Space Grotesk";
+  font-size:17px;
+  font-weight:800;
+}
+.institution-title h1{
+  color:#4a2a12;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:24px;
+  margin:3px 0 2px;
+}
+.institution-title h2{
+  color:#4a2a12;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:21px;
+  margin:2px 0;
+}
+.institution-title p{
+  color:#263c67;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:14px;
+}
+.institution-title strong{
+  color:#c90201;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:16px;
+}
+.navbar{border-top:1px solid #dfe7f6}
+.nav-menu a{color:#4a2a12}
+.nav-menu a:hover{color:var(--orange)}
+.nav-btn{background:var(--orange)!important}
+.logo{
+  background:linear-gradient(135deg,var(--blue),var(--blue2));
+}
+.hero{
+  background:
+    radial-gradient(circle at 85% 25%,rgba(9,185,238,.25),transparent 28%),
+    radial-gradient(circle at 10% 80%,rgba(244,123,22,.20),transparent 28%),
+    linear-gradient(135deg,#241b12,#a90000);
+}
+.hero h1 span{color:#42d2f4}
+.eyebrow{color:var(--orange)}
+.stat strong{color:var(--blue)}
+.icon{background:#fff1df;color:var(--blue)}
+.feature-band{background:#fff6e8}
+.notice-area{background:#071f65}
+.notes-section{background:#fff}
+.footer-grid .logo{background:linear-gradient(135deg,var(--blue),var(--blue2))}
+@media(max-width:950px){
+  .institutional-inner{grid-template-columns:80px 1fr 85px;gap:10px}
+  .institution-logo{height:80px}
+  .institution-title h1{font-size:18px}
+  .institution-title h2{font-size:16px}
+  .society-name{font-size:13px}
+  .institution-title p,.institution-title strong{font-size:11px}
+}
+@media(max-width:650px){
+  .institutional-inner{grid-template-columns:55px 1fr 60px;min-height:105px;gap:6px;padding:8px 0}
+  .institution-logo{height:65px}
+  .institution-title h1{font-size:11px;line-height:1.15}
+  .institution-title h2{font-size:11px}
+  .society-name{font-size:10px}
+  .institution-title p,.institution-title strong{font-size:8px}
+}
+
+
+/* =========================================================
+   ADVANCED KLE EMBLEM VISUAL SYSTEM
+   Palette: emblem red + orange + gold + charcoal + cream
+   ========================================================= */
+body{
+  background:
+    radial-gradient(circle at 10% 15%,rgba(212,157,58,.10),transparent 25%),
+    radial-gradient(circle at 90% 55%,rgba(201,2,1,.07),transparent 28%),
+    var(--bg);
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:9998;
+  background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),rgba(243,111,5,.075),transparent 65%);
+}
+#scrollProgress{
+  position:fixed;top:0;left:0;height:4px;width:0;z-index:10001;
+  background:linear-gradient(90deg,#c90201,#f36f05,#d49d3a);
+  box-shadow:0 0 18px rgba(243,111,5,.55);
+}
+#particleCanvas{
+  position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.42;
+}
+.institutional-header{
+  position:relative;
+  background:rgba(255,253,248,.96);
+  overflow:hidden;
+}
+.institutional-header:after{
+  content:"";
+  position:absolute;left:-10%;right:-10%;bottom:-17px;height:30px;
+  background:linear-gradient(90deg,#c90201 0 25%,#f36f05 25% 50%,#d49d3a 50% 75%,#c90201 75%);
+  transform:skewY(-1deg);
+  opacity:.9;
+}
+.institutional-inner{position:relative;z-index:2}
+.institution-logo img{
+  width: 110px;
+  height: auto;
+  filter:drop-shadow(0 10px 16px rgba(67,34,7,.12));
+  transition:transform .5s ease;
+}
+.institution-logo:hover img{transform:scale(1.07) rotate(-1deg)}
+.society-logo:after{
+  content:"";
+  position:absolute;width:92px;height:92px;border-radius:50%;
+  
+  animation:spinSlow 18s linear infinite;
+}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+
+.navbar{
+  background:rgba(255,253,248,.88)!important;
+  backdrop-filter:blur(22px) saturate(150%);
+  box-shadow:0 8px 30px rgba(55,31,7,.06);
+}
+.nav-menu a{position:relative}
+.nav-menu a:not(.nav-btn):after{
+  content:"";position:absolute;left:0;right:100%;bottom:-7px;height:2px;
+  background:linear-gradient(90deg,#c90201,#f36f05);
+  transition:.3s;
+}
+.nav-menu a:hover:after{right:0}
+.nav-btn{
+  box-shadow:0 10px 24px rgba(201,2,1,.22)!important;
+}
+.logo{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg,#c90201,#f36f05 55%,#d49d3a)!important;
+}
+.logo:after{
+  content:"";position:absolute;inset:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.38),transparent);
+  transform:translateX(-60%) rotate(20deg);animation:logoShine 4.5s infinite;
+}
+@keyframes logoShine{55%,100%{transform:translateX(80%) rotate(20deg)}}
+
+.hero{
+  min-height:760px;
+  isolation:isolate;
+  background:
+    radial-gradient(circle at 78% 18%,rgba(212,157,58,.30),transparent 20%),
+    radial-gradient(circle at 92% 70%,rgba(243,111,5,.22),transparent 26%),
+    radial-gradient(circle at 5% 75%,rgba(201,2,1,.20),transparent 28%),
+    linear-gradient(135deg,#241b12 0%,#43150e 44%,#790000 100%)!important;
+}
+.hero:before{
+  opacity:.12;
+  background-image:
+    linear-gradient(rgba(255,230,180,.28) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,230,180,.28) 1px,transparent 1px);
+  mask-image:linear-gradient(to bottom,black,transparent);
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  width:680px;height:680px;border-radius:50%;
+  right:-230px;top:-170px;
+  border:1px solid rgba(212,157,58,.25);
+  box-shadow:0 0 0 40px rgba(212,157,58,.025),0 0 0 80px rgba(212,157,58,.02);
+  animation:heroRing 12s ease-in-out infinite alternate;
+}
+@keyframes heroRing{to{transform:translate(-35px,35px) scale(1.08) rotate(15deg)}}
+.hero-content{z-index:5}
+.hero h1{
+  text-shadow:0 12px 35px rgba(0,0,0,.28);
+}
+.hero h1 span{
+  background:linear-gradient(90deg,#fff,#f7c66b,#f36f05);
+  -webkit-background-clip:text;background-clip:text;color:transparent!important;
+}
+.hero .badge{
+  box-shadow:inset 0 0 30px rgba(255,255,255,.035),0 10px 35px rgba(0,0,0,.14);
+}
+.hero-orb{
+  width:440px;height:440px;
+  background:
+    radial-gradient(circle at 35% 30%,rgba(255,224,145,.22),transparent 20%),
+    linear-gradient(145deg,rgba(212,157,58,.12),rgba(201,2,1,.08));
+  border-color:rgba(212,157,58,.25);
+  animation:floatOrb 7s ease-in-out infinite alternate;
+}
+@keyframes floatOrb{to{transform:translate(-20px,18px) scale(1.04)}}
+.code-card{
+  border-color:rgba(212,157,58,.22)!important;
+  background:rgba(36,27,18,.78)!important;
+  backdrop-filter:blur(16px);
+  transform:perspective(900px) rotateY(-8deg) rotateX(3deg);
+  transition:transform .5s ease;
+}
+.code-card:hover{transform:perspective(900px) rotateY(0) rotateX(0) translateY(-8px)}
+.orange{color:#f7c66b!important}
+.blue{color:#f36f05!important}
+.green{color:#e7b35a!important}
+
+.stats{
+  margin-top:-52px;
+}
+.stats-grid{
+  background:rgba(255,253,248,.91);
+  backdrop-filter:blur(18px);
+  box-shadow:0 25px 80px rgba(56,31,7,.15);
+}
+.stat{position:relative;overflow:hidden}
+.stat:before{
+  content:"";position:absolute;left:20%;right:20%;bottom:0;height:3px;
+  background:linear-gradient(90deg,#c90201,#f36f05,#d49d3a);
+  transform:scaleX(0);transition:.4s;
+}
+.stat:hover:before{transform:scaleX(1)}
+.stat strong{color:#c90201!important}
+
+section{position:relative}
+.section-head h2{
+  color:#241b12!important;
+}
+.eyebrow{color:#c90201!important}
+.card{
+  position:relative;
+  overflow:hidden;
+  background:rgba(255,253,248,.86);
+  backdrop-filter:blur(12px);
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s ease,border-color .45s ease;
+}
+.card:before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(125deg,rgba(212,157,58,.12),transparent 38%,rgba(201,2,1,.07));
+  opacity:0;transition:.45s;pointer-events:none;
+}
+.card:hover{
+  transform:translateY(-10px) rotateX(1deg);
+  box-shadow:0 25px 70px rgba(83,41,8,.15);
+  border-color:rgba(201,2,1,.25);
+}
+.card:hover:before{opacity:1}
+.icon{
+  background:linear-gradient(135deg,#fff0df,#f8dfb2)!important;
+  color:#c90201!important;
+  box-shadow:inset 0 0 0 1px rgba(201,2,1,.07);
+}
+.card a{color:#c90201!important}
+
+.feature-band{
+  background:
+    linear-gradient(135deg,rgba(212,157,58,.12),rgba(243,111,5,.05)),
+    #fff8ec!important;
+}
+.feature{
+  position:relative;overflow:hidden;
+  border-color:#ead7b7!important;
+}
+.feature:after{
+  content:"";position:absolute;width:100px;height:100px;border-radius:50%;
+  right:-35px;top:-35px;background:rgba(201,2,1,.06);
+}
+.feature .num{color:#c90201!important}
+
+.faculty-photo{
+  background:
+    radial-gradient(circle at 25% 25%,rgba(255,255,255,.35),transparent 20%),
+    linear-gradient(135deg,#241b12,#c90201 60%,#d49d3a)!important;
+}
+.tag{background:#fff0df!important;color:#7b3514!important}
+
+.event-main{
+  background:
+    radial-gradient(circle at 80% 20%,rgba(212,157,58,.28),transparent 24%),
+    linear-gradient(135deg,#241b12,#7e0000)!important;
+  box-shadow:0 25px 70px rgba(83,23,7,.20);
+}
+.event-main .date{color:#f7c66b!important}
+.event-date{
+  background:#fff0df!important;color:#c90201!important;
+}
+
+.notice-area{
+  background:
+    radial-gradient(circle at 10% 20%,rgba(212,157,58,.12),transparent 30%),
+    linear-gradient(135deg,#241b12,#4b0906)!important;
+}
+.notice-box{
+  background:rgba(255,253,248,.055)!important;
+  backdrop-filter:blur(14px);
+  border-color:rgba(212,157,58,.16)!important;
+}
+.notice span{color:#f0c77a!important}
+
+.gallery div{
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.10),0 14px 40px rgba(61,27,5,.10);
+  transition:.45s;
+}
+.gallery div:hover{transform:scale(1.025);filter:saturate(1.08)}
+.gallery div:nth-child(1){background:linear-gradient(135deg,#8e0000,#c90201,#d49d3a)!important}
+.gallery div:nth-child(2){background:linear-gradient(135deg,#f36f05,#d49d3a)!important}
+.gallery div:nth-child(3){background:linear-gradient(135deg,#241b12,#7e0000)!important}
+.gallery div:nth-child(4){background:linear-gradient(135deg,#a90000,#f36f05)!important}
+.gallery div:nth-child(5){background:linear-gradient(135deg,#4a2412,#d49d3a)!important}
+.gallery div:nth-child(6){background:linear-gradient(135deg,#c90201,#6e0804)!important}
+
+/* =========================================
+   CAMPUS GALLERY
+========================================= */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 45px;
+}
+
+.gallery-card {
+  position: relative;
+  height: 310px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 15px 35px rgba(0,0,0,.12);
+  cursor: pointer;
+  transition: transform .4s ease,
+              box-shadow .4s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0,0,0,.20);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.08);
+}
+
+
+/* Dark gradient over image */
+
+.gallery-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,.82),
+      rgba(0,0,0,.20) 55%,
+      rgba(0,0,0,0)
+    );
+
+  pointer-events: none;
+}
+
+
+/* Text */
+
+.gallery-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 24px;
+
+  color: white;
+
+  z-index: 2;
+}
+
+.gallery-overlay span {
+  display: inline-block;
+
+  padding: 5px 11px;
+
+  border-radius: 20px;
+
+  background: rgba(255,255,255,.18);
+
+  backdrop-filter: blur(8px);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  margin-bottom: 8px;
+}
+
+.gallery-overlay h3 {
+  margin: 0 0 6px;
+
+  font-size: 20px;
+
+  font-weight: 700;
+}
+
+.gallery-overlay p {
+  margin: 0;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  opacity: .88;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .gallery-card {
+    height: 280px;
+  }
+
+}
+
+.cta{
+  background:
+    radial-gradient(circle at 85% 20%,rgba(255,235,172,.28),transparent 25%),
+    linear-gradient(135deg,#c90201,#8e0000 55%,#f36f05)!important;
+  box-shadow:0 25px 70px rgba(126,17,5,.20);
+}
+.cta .btn{color:#7e0000!important}
+
+.contact-card{
+  background:
+    radial-gradient(circle at 80% 15%,rgba(212,157,58,.20),transparent 30%),
+    linear-gradient(135deg,#241b12,#5d0905)!important;
+}
+input,textarea,select{
+  background:#fffaf1!important;
+}
+input:focus,textarea:focus,select:focus{
+  border-color:#c90201!important;
+  box-shadow:0 0 0 3px rgba(201,2,1,.10)!important;
+}
+
+footer{
+  background:
+    radial-gradient(circle at 75% 15%,rgba(212,157,58,.10),transparent 25%),
+    #241b12!important;
+}
+footer a:hover{color:#f7c66b}
+.footer-bottom{border-color:rgba(212,157,58,.14)!important}
+
+/* Animated section ornaments */
+.section-head:after{
+  content:"";
+  display:block;width:55px;height:3px;margin:18px auto 0;border-radius:20px;
+  background:linear-gradient(90deg,#c90201,#f36f05,#d49d3a);
+}
+.about-visual{
+  box-shadow:0 30px 75px rgba(61,27,5,.18);
+  background:
+    radial-gradient(circle at 70% 20%,rgba(212,157,58,.28),transparent 23%),
+    linear-gradient(145deg,#241b12,#720704)!important;
+}
+.about-visual:before{
+  content:"";
+  position:absolute;width:260px;height:260px;border:1px solid rgba(212,157,58,.22);
+  border-radius:50%;right:-60px;top:-50px;
+  box-shadow:0 0 0 30px rgba(212,157,58,.025),0 0 0 60px rgba(212,157,58,.018);
+  animation:spinSlow 20s linear infinite;
+}
+.about-visual:after{color:rgba(212,157,58,.07)!important}
+
+.reveal{transition:opacity .8s ease,transform .8s cubic-bezier(.2,.75,.2,1)}
+.reveal:nth-child(2){transition-delay:.07s}
+.reveal:nth-child(3){transition-delay:.14s}
+.reveal:nth-child(4){transition-delay:.21s}
+
+@media(max-width:650px){
+  .hero{min-height:680px}
+  .hero:after{width:420px;height:420px;right:-260px}
+  .code-card{display:none}
+}
+
+
+/* =========================================================
+   NOTES / DIGITAL RESOURCE HUB
+   GitHub-ready relative download paths
+   ========================================================= */
+.notes-section{
+  background:
+    radial-gradient(circle at 8% 12%,rgba(212,157,58,.09),transparent 24%),
+    radial-gradient(circle at 92% 70%,rgba(201,2,1,.055),transparent 28%),
+    #fffdf8!important;
+}
+.semester-tabs{
+  display:flex;gap:9px;flex-wrap:wrap;justify-content:center;
+  margin:-12px auto 28px;
+}
+.semester-tab small{font-size:9px;letter-spacing:.7px;background:rgba(201,2,1,.09);color:#c90201;border-radius:999px;padding:3px 6px;margin-left:5px;font-weight:800}.semester-tab.active small{background:#fff0df;color:#c90201}
+.semester-tab{
+  border:1px solid #eadcc4;background:#fff8ec;color:#5a321c;
+  padding:11px 17px;border-radius:999px;font:700 13px Inter, sans-serif;
+  cursor:pointer;transition:.3s;
+}
+.semester-tab:hover{
+  transform:translateY(-2px);border-color:#d49d3a;
+}
+.semester-tab.active{
+  color:#fff;background:linear-gradient(135deg,#c90201,#f36f05);
+  border-color:#c90201;box-shadow:0 10px 25px rgba(201,2,1,.20);
+}
+.notes-toolbar{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:17px 20px;margin-bottom:20px;border:1px solid #eadcc4;
+  background:rgba(255,250,240,.8);border-radius:17px;
+}
+.notes-count{
+  display:inline-block;color:#c90201;font:800 13px "Space Grotesk";
+}
+.notes-subtitle{
+  margin-left:10px;color:#806f5c;font-size:12px;
+}
+.notes-search{
+  display:flex;align-items:center;gap:8px;width:min(300px,100%);
+  padding:9px 13px;border:1px solid #eadcc4;border-radius:11px;background:#fff;
+}
+.notes-search span{font-size:20px;color:#c90201}
+.notes-search input{
+  border:0!important;background:transparent!important;padding:2px!important;
+  box-shadow:none!important;font-size:13px;
+}
+.notes-panels{min-height:300px}
+.semester-panel{display:none}
+.semester-panel.active{display:block}
+.subject-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:19px;
+}
+.subject-card{
+  position:relative;display:flex;gap:16px;min-height:245px;
+  padding:21px;background:rgba(255,253,248,.9);
+  border:1px solid #eadcc4;border-radius:20px;
+  box-shadow:0 9px 30px rgba(79,43,11,.06);
+  overflow:hidden;transition:.4s cubic-bezier(.2,.8,.2,1);
+}
+.subject-card:before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:linear-gradient(#c90201,#f36f05,#d49d3a);
+}
+.subject-card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(201,2,1,.25);
+  box-shadow:0 22px 55px rgba(79,43,11,.13);
+}
+.subject-icon{
+  flex:0 0 44px;height:44px;border-radius:13px;
+  display:grid;place-items:center;
+  color:#fff;font:800 13px "Space Grotesk";
+  background:linear-gradient(135deg,#c90201,#f36f05 60%,#d49d3a);
+  box-shadow:0 8px 18px rgba(201,2,1,.17);
+}
+.subject-body{min-width:0}
+.subject-code{
+  display:block;margin-bottom:5px;color:#c90201;
+  font-size:10px;font-weight:800;letter-spacing:.7px;
+}
+.subject-card h3{
+  font:700 19px "Space Grotesk";line-height:1.2;color:#241b12;
+  margin-bottom:7px;
+}
+.subject-card p{
+  color:#6b5b4c;font-size:12px;line-height:1.55;margin-bottom:14px;
+}
+.resource-list{display:flex;gap:7px;flex-wrap:wrap}
+.resource-btn{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:8px 9px;border:1px solid #eadcc4;border-radius:9px;
+  background:#fff;color:#6b3a1b;font-size:10px;font-weight:800;
+  transition:.25s;
+}
+.resource-btn:hover{
+  transform:translateY(-2px);border-color:#c90201;
+  color:#c90201;box-shadow:0 7px 18px rgba(201,2,1,.10);
+}
+.resource-btn b{font-size:12px;margin-left:1px}
+.resource-btn.primary-resource{
+  background:#fff0df;border-color:#f0c98e;color:#a80000;
+}
+.github-note{
+  margin-top:25px;padding:18px 20px;border-radius:16px;
+  display:flex;align-items:flex-start;gap:13px;
+  background:linear-gradient(135deg,#241b12,#5d0905);color:#fff;
+  box-shadow:0 16px 40px rgba(61,27,5,.13);
+}
+.github-note-icon{
+  width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+  background:rgba(212,157,58,.18);color:#f7c66b;font-size:20px;
+}
+.github-note strong{font:700 14px "Space Grotesk"}
+.github-note p{font-size:11px;color:#eadcc4;margin-top:3px}
+.github-note code{
+  color:#f7c66b;background:rgba(255,255,255,.07);
+  padding:2px 5px;border-radius:4px;
+}
+.notes-empty{
+  grid-column:1/-1;text-align:center;padding:45px;border:1px dashed #dec9a7;
+  border-radius:18px;color:#806f5c;background:#fffaf1;
+}
+@media(max-width:950px){
+  .subject-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:650px){
+  .semester-tabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:5px}
+  .semester-tab{white-space:nowrap}
+  .notes-toolbar{display:block}
+  .notes-search{width:100%;margin-top:12px}
+  .subject-grid{grid-template-columns:1fr}
+  .subject-card{min-height:auto}
+}
+
+.faculty-photo{
+    height:260px;
+    overflow:hidden;
+    background:linear-gradient(
+        135deg,
+        #c9161d,
+        #f47b16,
+        #d5a52e
+    );
+    position:relative;
+}
+
+.faculty-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center top;
+    display:block;
+    transition:transform .5s ease;
+}
+
+.faculty:hover .faculty-photo img{
+    transform:scale(1.06);
+}
+</style>
+</head>
+
+<body>
+<div id="scrollProgress"></div>
+
+<div class="topbar">
+  <div class="container">
+    <div class="top-links">
+      <span>📍 Gangavathi, Koppal, Karnataka</span>
+      <span>🎓 Department of Bachelor of Computer Applications</span>
+    </div>
+    <div class="top-links">
+      <span>Academic Year 2026–27</span>
+      <span>📞 +91 7892193760</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="institutional-header">
+  <div class="container institutional-inner">
+    <div class="institution-logo society-logo">
+      <img src="KLE.png" alt="KLE Society Logo">
+    </div>
+    <div class="institution-title">
+      <div class="society-name">K.L.E. Society's</div>
+      <h1>Shri. Rajashekharappa Pampanna Mastar Hoskari College</h1>
+      <h2>Bachelor of Computer Applications</h2>
+      <p>(Affiliated to Koppal University, Koppal)</p>
+      <strong>Vaddarahatti, Gangavathi – 583235</strong>
+    </div>
+    <div class="institution-logo dept-logo">
+      <img src="BCA.png" alt="BCA Department Logo">
+    </div>
+  </div>
+</div>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="brand">
+      <div class="logo">BCA</div>
+      <div class="brand-text">
+        <strong>BCA Department</strong>
+        <span>Learn • Build • Innovate • Lead</span>
+      </div>
+    </a>
+
+    <button class="menu-toggle" aria-label="Open menu">☰</button>
+
+    <nav class="nav-menu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#academics">Academics</a>
+      <a href="#notes">Notes</a>
+      <a href="#faculty">Faculty</a>
+      <a href="#events">Events</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact" class="nav-btn">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home"><canvas id="particleCanvas"></canvas>
+  <div class="container">
+    <div class="hero-content">
+      <span class="badge"><i></i> Building the next generation of technology professionals</span>
+      <h1>Learn. Build.<br><span>Innovate.</span> Lead.</h1>
+      <p>
+        Welcome to the Department of Bachelor of Computer Applications — a
+        technology-focused learning environment where students transform
+        curiosity into practical skills, innovation and careers.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#academics">Explore BCA Program →</a>
+        <a class="btn btn-light" href="#events">View Department Events</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-orb"></div>
+  <div class="code-card">
+    <div class="code-top"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+    <div class="code-line"><span class="orange">const</span> future = <span class="blue">student</span>;</div>
+    <div class="code-line">future.<span class="green">learn</span>("AI");</div>
+    <div class="code-line">future.<span class="green">build</span>("Projects");</div>
+    <div class="code-line">future.<span class="green">solve</span>("Problems");</div>
+    <div class="code-line"><span class="orange">return</span> future.<span class="green">success</span>();</div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat"><strong>3</strong><span>Years of Undergraduate Study</span></div>
+      <div class="stat"><strong>20+</strong><span>Technology Subjects</span></div>
+      <div class="stat"><strong>10+</strong><span>Practical Labs & Facilities</span></div>
+      <div class="stat"><strong>100%</strong><span>Practical Learning Focus</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-visual reveal">
+      <div class="visual-box">
+        <div class="eyebrow">Department Vision</div>
+        <h3>Technology starts with curiosity.</h3>
+        <p>We create opportunities for students to learn computing through projects, problem solving, teamwork and real-world applications.</p>
+      </div>
+    </div>
+    <div class="about-copy reveal">
+      <div class="eyebrow">About the Department</div>
+      <h3>Where academic knowledge meets practical technology.</h3>
+      <p>
+        The BCA Department provides an application-oriented education in
+        computer applications, programming, databases, web technologies,
+        data analytics, artificial intelligence and emerging technologies.
+      </p>
+      <p>
+        Our approach combines classroom learning with laboratory practice,
+        projects, workshops, seminars and industry-oriented activities.
+      </p>
+      <div class="checks">
+        <div class="check"><b>✓</b> Strong programming and problem-solving foundation</div>
+        <div class="check"><b>✓</b> Hands-on laboratory and project-based learning</div>
+        <div class="check"><b>✓</b> AI, data science and modern technology exposure</div>
+        <div class="check"><b>✓</b> Career, placement and professional skill development</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="academics">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Academic Excellence</div>
+      <h2>Explore the BCA learning journey</h2>
+      <p>A structured academic experience designed to develop strong fundamentals and job-ready technical capabilities.</p>
+    </div>
+
+    <div class="program-grid">
+      <article class="card reveal">
+        <div class="icon">💻</div>
+        <h3>Programming & Development</h3>
+        <p>C, C++, Java, Python, JavaScript, web development and software development fundamentals.</p>
+        <a href="#">Explore subjects →</a>
+      </article>
+      <article class="card reveal">
+        <div class="icon">🗄️</div>
+        <h3>Data & Databases</h3>
+        <p>DBMS, SQL, data structures, data analytics, data mining and practical data management.</p>
+        <a href="#">View curriculum →</a>
+      </article>
+      <article class="card reveal">
+        <div class="icon">🤖</div>
+        <h3>AI & Emerging Technology</h3>
+        <p>Artificial intelligence, machine learning, generative AI and modern technology applications.</p>
+        <a href="#">Discover technologies →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="feature-band">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Student Experience</div>
+      <h2>Beyond the classroom</h2>
+      <p>Learning continues through activities that develop technical ability, confidence and professional readiness.</p>
+    </div>
+    <div class="features">
+      <div class="feature reveal"><div class="num">01</div><p>Technical Workshops</p></div>
+      <div class="feature reveal"><div class="num">02</div><p>Industry Seminars</p></div>
+      <div class="feature reveal"><div class="num">03</div><p>Student Projects</p></div>
+      <div class="feature reveal"><div class="num">04</div><p>Placement Training</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faculty">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Our Faculty</div>
+      <h2>Meet the academic team</h2>
+      <p>Dedicated educators supporting students in academics, projects, technology and career development.</p>
+    </div>
+
+    <div class="faculty-grid">
+
+  <article class="card faculty reveal">
+    <div class="faculty-photo">
+      <img src="VK.jpeg"
+           alt="Mr. Vamshi Krishna B">
+    </div>
+
+    <div class="faculty-info">
+      <h3>Mr. Vamshi Krishna B</h3>
+      <p>Assistant Professor • Academic Coordinator</p>
+      <span class="tag">Programming & Data</span>
+    </div>
+  </article>
+
+
+  <article class="card faculty reveal">
+    <div class="faculty-photo">
+      <img src="NK.jpg"
+           alt="Ms. Nikitha M C">
+    </div>
+
+    <div class="faculty-info">
+      <h3>Ms. Nikitha M C</h3>
+      <p>Assistant Professor • Seminar & Activity Coordinator</p>
+      <span class="tag">Web Technologies</span>
+    </div>
+  </article>
+
+
+  <article class="card faculty reveal">
+    <div class="faculty-photo">
+      <img src="SAI.jpg"
+           alt="Mr. Sai Prakash">
+    </div>
+
+    <div class="faculty-info">
+      <h3>Mr. Sai Prakash</h3>
+      <p>Assistant Professor • Digital Marketing Coordinator</p>
+      <span class="tag">Database Systems</span>
+    </div>
+  </article>
+
+
+  <article class="card faculty reveal">
+    <div class="faculty-photo">
+      <img src="VKN.jpeg"
+           alt="Mr. N. Vijay Kumar">
+    </div>
+
+    <div class="faculty-info">
+      <h3>Mr. N. Vijay Kumar</h3>
+      <p>Assistant Professor • Placement Coordinator</p>
+      <span class="tag">Software & AI</span>
+    </div>
+  </article>
+
+</div>
+  </div>
+</section>
+
+
+
+<section id="notes" class="notes-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">BCA Digital Learning Hub</div>
+      <h2>Notes & Study Materials</h2>
+      <p>Choose a semester, select a subject, and download the required academic material. The file paths are GitHub-ready and can be connected to your repository later.</p>
+    </div>
+
+    <div class="semester-tabs" role="tablist" aria-label="BCA semesters">
+      <button class="semester-tab active" data-semester="sem1">Semester I <small>AVAILABLE</small></button>
+      <button class="semester-tab" data-semester="sem3">Semester III <small>AVAILABLE</small></button>
+      <button class="semester-tab" data-semester="sem5">Semester V <small>AVAILABLE</small></button>
+    </div>
+
+    <div class="notes-toolbar">
+      <div>
+        <span class="notes-count" id="notesCount">6 Subjects</span>
+        <span class="notes-subtitle">Select a subject to access its resources</span>
+      </div>
+      <label class="notes-search">
+        <span>⌕</span>
+        <input id="notesSearch" type="search" placeholder="Search subject..." aria-label="Search subject">
+      </label>
+    </div>
+
+    <div class="notes-panels">
+
+      <!-- SEMESTER I -->
+      <div class="semester-panel active" id="sem1">
+        <div class="subject-grid">
+          <article class="subject-card reveal">
+            <div class="subject-icon">01</div>
+            <div class="subject-body">
+              <span class="subject-code">SEM I • CORE</span>
+              <h3>C Programming</h3>
+              <p>Algorithms, flowcharts, programming fundamentals, C programming and problem-solving concepts.</p>
+              <div class="resource-list">
+                <a class="resource-btn primary-resource" href="cModule-1.pdf" download="cModule-1.pdf"><span>📘</span> Unit 1<b>↓</b></a>
+                <a class="resource-btn primary-resource" href="cModule-2.pdf" download="cModule-2.pdf"><span>📘</span> Unit 2<b>↓</b></a>
+                <a class="resource-btn primary-resource" href="cModule-3.pdf" download="cModule-3.pdf"><span>📘</span> Unit 3<b>↓</b></a>
+                <a class="resource-btn primary-resource" href="cModule-4.pdf" download="cModule-4.pdf"><span>📘</span> Unit 4<b>↓</b></a>
+                <a class="resource-btn primary-resource" href="cModule-5.pdf" download="cModule-5.pdf"><span>📘</span> Unit 5<b>↓</b></a>
+                <a class="resource-btn" href="clab.pdf" download="clab.pdf"><span>📝</span> Lab Manual <b>↓</b></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="subject-card reveal">
+            <div class="subject-icon">02</div>
+            <div class="subject-body">
+              <span class="subject-code">SEM I • CORE</span>
+              <h3>Digital Logic Design</h3>
+              <p>Digital circuits, logic gates, combinational and sequential circuits, and design methodologies.</p>
+              <div class="resource-list">
+                <a class="resource-btn primary-resource" href="dModule-1.pdf" download="dModule-1.pdf"><span>📘</span> Unit 1<b>↓</b></a>
+                <a class="resource-btn primary-resource" href="dModule-2.pdf" download="dModule-2.pdf"><span>📘</span> Unit 2<b>↓</b></a>
+                <a class="resource-btn primary-resource" href="dModule-3.pdf" download="dModule-3.pdf"><span>📘</span> Unit 3<b>↓</b></a>
+                <a class="resource-btn primary-resource" href="dModule-4.pdf" download="dModule-4.pdf"><span>📘</span> Unit 4<b>↓</b></a>
+                <a class="resource-btn primary-resource" href="dModule-5.pdf" download="dModule-5.pdf"><span>📘</span> Unit 5<b>↓</b></a>
+                <a class="resource-btn" href="dlab.pdf" download="dlab.pdf"><span>📝</span> Lab Manual <b>↓</b></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="subject-card reveal">
+            <div class="subject-icon">03</div>
+            <div class="subject-body">
+              <span class="subject-code">SEM I • CORE</span>
+              <h3>Discrete Mathematics</h3>
+              <p>Mathematical structures, logic, sets, relations, functions, matrices and related foundations.</p>
+              <div class="resource-list">
+                <a class="resource-btn primary-resource" href="mModule-1.pdf" download="mModule-1.pdf"><span>📘</span> Unit 1<b>↓</b></a>
+                <a class="resource-btn primary-resource" href="mModule-2.pdf" download="mModule-2.pdf"><span>📘</span> Unit 2<b>↓</b></a>
+                <a class="resource-btn primary-resource" href="mModule-3.pdf" download="mModule-3.pdf"><span>📘</span> Unit 3<b>↓</b></a>
+                <a class="resource-btn primary-resource" href="mModule-4.pdf" download="mModule-4.pdf"><span>📘</span> Unit 4<b>↓</b></a>
+                <a class="resource-btn primary-resource" href="mModule-5.pdf" download="mModule-5.pdf"><span>📘</span> Unit 5<b>↓</b></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="subject-card reveal">
+            <div class="subject-icon">04</div>
+            <div class="subject-body">
+              <span class="subject-code">SEM I • LANGUAGE</span>
+              <h3>English</h3>
+              <p>Communication, language skills, comprehension, writing and professional communication.</p>
+              <div class="resource-list">
+                <a class="resource-btn primary-resource" href="notes/semester-1/english.pdf" download="English.pdf"><span>📘</span> Notes <b>↓</b></a>
+                <a class="resource-btn" href="notes/semester-1/english-question-bank.pdf" download="English-Question-Bank.pdf"><span>📝</span> Q Bank <b>↓</b></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="subject-card reveal">
+            <div class="subject-icon">05</div>
+            <div class="subject-body">
+              <span class="subject-code">SEM I • LANGUAGE</span>
+              <h3>Kannada / Hindi</h3>
+              <p>Language learning resources, prescribed lessons, grammar and communication activities.</p>
+              <div class="resource-list">
+                <a class="resource-btn primary-resource" href="notes/semester-1/language-notes.pdf" download="Language-Notes.pdf"><span>📘</span> Notes <b>↓</b></a>
+                <a class="resource-btn" href="notes/semester-1/language-question-bank.pdf" download="Language-Question-Bank.pdf"><span>📝</span> Q Bank <b>↓</b></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="subject-card reveal">
+            <div class="subject-icon">06</div>
+            <div class="subject-body">
+              <span class="subject-code">SEM I • VALUE EDUCATION</span>
+              <h3>Constitutional Values</h3>
+              <p>Constitutional principles, citizenship, values, rights, duties and civic awareness.</p>
+              <div class="resource-list">
+                <a class="resource-btn primary-resource" href="notes/semester-1/constitutional-values.pdf" download="Constitutional-Values.pdf"><span>📘</span> Notes <b>↓</b></a>
+                <a class="resource-btn" href="notes/semester-1/constitutional-values-question-bank.pdf" download="Constitutional-Values-Question-Bank.pdf"><span>📝</span> Q Bank <b>↓</b></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- SEMESTER III — CURRENTLY AVAILABLE -->
+      <div class="semester-panel" id="sem3">
+        <div class="subject-grid">
+          <article class="subject-card reveal">
+            <div class="subject-icon">01</div>
+            <div class="subject-body">
+              <span class="subject-code">SEM 3 • MAJOR</span>
+              <h3>Java Programming</h3>
+              <p>Java programming, classes and objects, inheritance, polymorphism, GUI programming, I/O, multithreading and collections.</p>
+              <div class="resource-list">
+                <a class="resource-btn primary-resource" href="notes/semester-3/java-programming/unit-1.pdf" download="Java-Unit-1.pdf"><span>📘</span> Unit 1 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/java-programming/unit-2.pdf" download="Java-Unit-2.pdf"><span>📘</span> Unit 2 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/java-programming/unit-3.pdf" download="Java-Unit-3.pdf"><span>📘</span> Unit 3 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/java-programming/unit-4.pdf" download="Java-Unit-4.pdf"><span>📘</span> Unit 4 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/java-programming/unit-5.pdf" download="Java-Unit-5.pdf"><span>📘</span> Unit 5 <b>↓</b></a>
+                <a class="resource-btn" href="notes/semester-3/java-programming/jlab.pdf" download="Java-Lab-Manual.pdf"><span>📝</span> Lab Manual <b>↓</b></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="subject-card reveal">
+            <div class="subject-icon">02</div>
+            <div class="subject-body">
+              <span class="subject-code">SEM 3 • MAJOR</span>
+              <h3>Database Management System</h3>
+              <p>Database architecture, ER modeling, relational model, SQL, normalization, transactions and concurrency control.</p>
+              <div class="resource-list">
+                <a class="resource-btn primary-resource" href="notes/semester-3/dbms/unit-1.pdf" download="DBMS-Unit-1.pdf"><span>📘</span> Unit 1 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/dbms/unit-2.pdf" download="DBMS-Unit-2.pdf"><span>📘</span> Unit 2 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/dbms/unit-3.pdf" download="DBMS-Unit-3.pdf"><span>📘</span> Unit 3 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/dbms/unit-4.pdf" download="DBMS-Unit-4.pdf"><span>📘</span> Unit 4 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/dbms/unit-5.pdf" download="DBMS-Unit-5.pdf"><span>📘</span> Unit 5 <b>↓</b></a>
+                <a class="resource-btn" href="notes/semester-3/dbms/dlab.pdf" download="DBMS-Lab-Manual.pdf"><span>📝</span> Lab Manual <b>↓</b></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="subject-card reveal">
+            <div class="subject-icon">03</div>
+            <div class="subject-body">
+              <span class="subject-code">SEM 3 • MAJOR</span>
+              <h3>Web Design</h3>
+              <p>HTML, CSS, JavaScript, events and event handlers, dynamic web pages and XML-based web development.</p>
+              <div class="resource-list">
+                <a class="resource-btn primary-resource" href="notes/semester-3/web-design/unit-1.pdf" download="Web-Design-Unit-1.pdf"><span>📘</span> Unit 1 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/web-design/unit-2.pdf" download="Web-Design-Unit-2.pdf"><span>📘</span> Unit 2 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/web-design/unit-3.pdf" download="Web-Design-Unit-3.pdf"><span>📘</span> Unit 3 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/web-design/unit-4.pdf" download="Web-Design-Unit-4.pdf"><span>📘</span> Unit 4 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/web-design/unit-5.pdf" download="Web-Design-Unit-5.pdf"><span>📘</span> Unit 5 <b>↓</b></a>
+                <a class="resource-btn" href="notes/semester-3/web-design/wlab.pdf" download="Web-Design-Lab-Manual.pdf"><span>📝</span> Lab Manual <b>↓</b></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="subject-card reveal">
+            <div class="subject-icon">04</div>
+            <div class="subject-body">
+              <span class="subject-code">SEM 3 • LANGUAGE</span>
+              <h3>English</h3>
+              <p>Semester III English learning resources, communication skills, prescribed lessons and language activities.</p>
+              <div class="resource-list">
+                <a class="resource-btn primary-resource" href="notes/semester-3/english/unit-1.pdf" download="English-Unit-1.pdf"><span>📘</span> Unit 1 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/english/unit-2.pdf" download="English-Unit-2.pdf"><span>📘</span> Unit 2 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/english/unit-3.pdf" download="English-Unit-3.pdf"><span>📘</span> Unit 3 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/english/unit-4.pdf" download="English-Unit-4.pdf"><span>📘</span> Unit 4 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/english/unit-5.pdf" download="English-Unit-5.pdf"><span>📘</span> Unit 5 <b>↓</b></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="subject-card reveal">
+            <div class="subject-icon">05</div>
+            <div class="subject-body">
+              <span class="subject-code">SEM 3 • LANGUAGE</span>
+              <h3>Kannada / Hindi</h3>
+              <p>Language II resources for Kannada or Hindi, including prescribed lessons, grammar and communication activities.</p>
+              <div class="resource-list">
+                <a class="resource-btn primary-resource" href="notes/semester-3/kannada-hindi/unit-1.pdf" download="Kannada-Hindi-Unit-1.pdf"><span>📘</span> Unit 1 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/kannada-hindi/unit-2.pdf" download="Kannada-Hindi-Unit-2.pdf"><span>📘</span> Unit 2 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/kannada-hindi/unit-3.pdf" download="Kannada-Hindi-Unit-3.pdf"><span>📘</span> Unit 3 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/kannada-hindi/unit-4.pdf" download="Kannada-Hindi-Unit-4.pdf"><span>📘</span> Unit 4 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-3/kannada-hindi/unit-5.pdf" download="Kannada-Hindi-Unit-5.pdf"><span>📘</span> Unit 5 <b>↓</b></a>
+              </div>
+            </div>
+           </div>
+      </div>
+
+      <!-- SEMESTER V — CURRENTLY AVAILABLE -->
+      <div class="semester-panel" id="sem5">
+        <div class="subject-grid">
+          <article class="subject-card reveal">
+            <div class="subject-icon">01</div>
+            <div class="subject-body">
+              <span class="subject-code">SEM 5 • MAJOR</span>
+              <h3>Design &amp; Analysis of Algorithms</h3>
+              <p>Algorithm analysis, divide and conquer, greedy method, dynamic programming, backtracking and branch and bound.</p>
+              <div class="resource-list">
+                <a class="resource-btn primary-resource" href="notes/semester-5/daa/unit-1.pdf" download="DAA-Unit-1.pdf"><span>📘</span> Unit 1 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/daa/unit-2.pdf" download="DAA-Unit-2.pdf"><span>📘</span> Unit 2 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/daa/unit-3.pdf" download="DAA-Unit-3.pdf"><span>📘</span> Unit 3 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/daa/unit-4.pdf" download="DAA-Unit-4.pdf"><span>📘</span> Unit 4 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/daa/unit-5.pdf" download="DAA-Unit-5.pdf"><span>📘</span> Unit 5 <b>↓</b></a>
+                <a class="resource-btn" href="notes/semester-5/daa/daa-lab.pdf" download="DAA-Lab-Manual.pdf"><span>📝</span> Lab Manual <b>↓</b></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="subject-card reveal">
+            <div class="subject-icon">02</div>
+            <div class="subject-body">
+              <span class="subject-code">SEM 5 • MAJOR</span>
+              <h3>C# and .NET Framework</h3>
+              <p>C# programming, object-oriented concepts, Windows applications, ADO.NET and ASP.NET web application development.</p>
+              <div class="resource-list">
+                <a class="resource-btn primary-resource" href="notes/semester-5/csharp-dotnet/unit-1.pdf" download="CSharp-DotNet-Unit-1.pdf"><span>📘</span> Unit 1 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/csharp-dotnet/unit-2.pdf" download="CSharp-DotNet-Unit-2.pdf"><span>📘</span> Unit 2 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/csharp-dotnet/unit-3.pdf" download="CSharp-DotNet-Unit-3.pdf"><span>📘</span> Unit 3 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/csharp-dotnet/unit-4.pdf" download="CSharp-DotNet-Unit-4.pdf"><span>📘</span> Unit 4 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/csharp-dotnet/unit-5.pdf" download="CSharp-DotNet-Unit-5.pdf"><span>📘</span> Unit 5 <b>↓</b></a>
+                <a class="resource-btn" href="notes/semester-5/csharp-dotnet/csharp-dotnet-lab.pdf" download="CSharp-DotNet-Lab-Manual.pdf"><span>📝</span> Lab Manual <b>↓</b></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="subject-card reveal">
+            <div class="subject-icon">03</div>
+            <div class="subject-body">
+              <span class="subject-code">SEM 5 • MAJOR</span>
+              <h3>PHP and MySQL</h3>
+              <p>PHP programming, control structures, arrays, functions and classes, file handling, SQL and database-driven applications.</p>
+              <div class="resource-list">
+                <a class="resource-btn primary-resource" href="notes/semester-5/php-mysql/unit-1.pdf" download="PHP-MySQL-Unit-1.pdf"><span>📘</span> Unit 1 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/php-mysql/unit-2.pdf" download="PHP-MySQL-Unit-2.pdf"><span>📘</span> Unit 2 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/php-mysql/unit-3.pdf" download="PHP-MySQL-Unit-3.pdf"><span>📘</span> Unit 3 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/php-mysql/unit-4.pdf" download="PHP-MySQL-Unit-4.pdf"><span>📘</span> Unit 4 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/php-mysql/unit-5.pdf" download="PHP-MySQL-Unit-5.pdf"><span>📘</span> Unit 5 <b>↓</b></a>
+                <a class="resource-btn" href="notes/semester-5/php-mysql/php-mysql-lab.pdf" download="PHP-MySQL-Lab-Manual.pdf"><span>📝</span> Lab Manual <b>↓</b></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="subject-card reveal">
+            <div class="subject-icon">04</div>
+            <div class="subject-body">
+              <span class="subject-code">SEM 5 • ELECTIVE</span>
+              <h3>Software Engineering</h3>
+              <p>Software engineering principles, SDLC models, requirements analysis, software design, testing, maintenance and project management.</p>
+              <div class="resource-list">
+                <a class="resource-btn primary-resource" href="notes/semester-5/software-engineering/unit-1.pdf" download="Software-Engineering-Unit-1.pdf"><span>📘</span> Unit 1 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/software-engineering/unit-2.pdf" download="Software-Engineering-Unit-2.pdf"><span>📘</span> Unit 2 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/software-engineering/unit-3.pdf" download="Software-Engineering-Unit-3.pdf"><span>📘</span> Unit 3 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/software-engineering/unit-4.pdf" download="Software-Engineering-Unit-4.pdf"><span>📘</span> Unit 4 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/software-engineering/unit-5.pdf" download="Software-Engineering-Unit-5.pdf"><span>📘</span> Unit 5 <b>↓</b></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="subject-card reveal">
+            <div class="subject-icon">05</div>
+            <div class="subject-body">
+              <span class="subject-code">SEM 5 • RESEARCH</span>
+              <h3>Internship / Elementary Research Methodology</h3>
+              <p>Internship and elementary research methodology resources for Semester V.</p>
+              <div class="resource-list">
+                <a class="resource-btn primary-resource" href="notes/semester-5/research-methodology/unit-1.pdf" download="Research-Methodology-Unit-1.pdf"><span>📘</span> Unit 1 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/research-methodology/unit-2.pdf" download="Research-Methodology-Unit-2.pdf"><span>📘</span> Unit 2 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/research-methodology/unit-3.pdf" download="Research-Methodology-Unit-3.pdf"><span>📘</span> Unit 3 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/research-methodology/unit-4.pdf" download="Research-Methodology-Unit-4.pdf"><span>📘</span> Unit 4 <b>↓</b></a>
+                <a class="resource-btn primary-resource" href="notes/semester-5/research-methodology/unit-5.pdf" download="Research-Methodology-Unit-5.pdf"><span>📘</span> Unit 5 <b>↓</b></a>
+              </div>
+            </div>
+          </div>
+      </div>
+        <div class="github-note">
+      <div class="github-note-icon">↗</div>
+      <div>
+        <strong>GitHub-ready downloads</strong>
+      <p>Semester I, Semester III and Semester V are available. Semester III and Semester V subjects now contain Unit 1 to Unit 5 download buttons. Upload the corresponding PDF files into the matching <code>notes/semester-X/subject-folder/</code> folders in your GitHub repository.</p>
+      </div>
+    </div>
+  </div>
+</section>
+  
+
+<section id="events">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Campus Life</div>
+      <h2>Events, workshops & activities</h2>
+      <p>Academic and co-curricular activities that connect students with practical technology and campus experiences.</p>
+    </div>
+
+    <div class="events-grid">
+      <div class="event-main reveal">
+        <div class="date">FEATURED EVENT • 2026</div>
+        <h3>Intelligent Application Development with Generative AI</h3>
+        <p>Hands-on learning covering generative AI, prompt engineering, RAG fundamentals, AI APIs, chatbots and application development.</p>
+        <a class="btn btn-primary" href="#contact" style="margin-top:25px">Know More</a>
+      </div>
+
+      <div class="event-list">
+        <div class="event-item reveal">
+          <div class="event-date">SEP<br>12</div>
+          <div><h4>NAVAYUGA — Freshers Celebration</h4><p>Student welcome, cultural activities and campus interaction.</p></div>
+        </div>
+        <div class="event-item reveal">
+          <div class="event-date">AUG<br>29</div>
+          <div><h4>The Science of Intelligent AI Interaction</h4><p>Seminar introducing AI concepts and intelligent interaction.</p></div>
+        </div>
+        <div class="event-item reveal">
+          <div class="event-date">2026</div>
+          <div><h4>Technical Workshops & Certificate Courses</h4><p>Skill-focused programs for undergraduate students.</p></div>
+        </div>
+        <div class="event-item reveal">
+          <div class="event-date">MORE</div>
+          <div><h4>View All Department Activities</h4><p>Explore seminars, competitions, projects and student activities.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="notice-area">
+  <div class="container notice-grid">
+    <div class="notice-box reveal">
+      <h3>📢 Latest Announcements</h3>
+      <div class="notice"><b>Academic Calendar — 2026–27</b><span>NEW</span></div>
+      <div class="notice"><b>Student Induction & Orientation Programme</b><span>INFO</span></div>
+      <div class="notice"><b>Department Workshops & Certificate Courses</b><span>UPDATE</span></div>
+      <div class="notice"><b>Internal Assessment Information</b><span>ACADEMIC</span></div>
+    </div>
+    <div class="notice-box reveal">
+      <h3>🎯 Student Corner</h3>
+      <div class="notice"><b>Student Projects</b><span>→</span></div>
+      <div class="notice"><b>Placement Preparation</b><span>→</span></div>
+      <div class="notice"><b>Lab Manuals & Resources</b><span>→</span></div>
+      <div class="notice"><b>Academic Results & Achievements</b><span>→</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+
+  <div class="container">
+
+    <div class="section-head reveal">
+      <div class="eyebrow">Department Highlights</div>
+
+      <h2>Our Campus & Learning Environment</h2>
+
+      <p>
+        Explore our campus, classrooms, library, infrastructure and
+        learning environment.
+      </p>
+    </div>
+
+    <!-- CAMPUS SLIDESHOW -->
+    <div class="campus-slideshow reveal">
+
+      <!-- Slide 1 -->
+      <div class="campus-slide active">
+
+        <img
+          src="C5.jpg"
+          alt="College Campus Courtyard"
+        >
+        <div class="slide-content">
+          <span>Our Institution</span>
+          <h3>Welcome to Our Campus</h3>
+          <p>
+            A welcoming environment for students and the academic community.
+          </p>
+        </div>
+        
+
+      </div>
+
+
+      <!-- Slide 2 -->
+      <div class="campus-slide">
+
+        <img
+          src="C2.png"
+          alt="KLE Institutions Building"
+        >
+
+        <div class="slide-content">
+          <span>Infrastructure</span>
+          <h3>KLE Institutions</h3>
+          <p>
+            A modern academic campus supporting teaching and learning.
+          </p>
+        </div>
+
+      </div>
+
+
+      <!-- Slide 3 -->
+      <div class="campus-slide">
+
+        <img
+          src="C3.png"
+          alt="BCA Classroom"
+        >
+
+        <div class="slide-content">
+          <span>Learning</span>
+          <h3>Modern Classrooms</h3>
+          <p>
+            Spacious classrooms designed for an effective learning experience.
+          </p>
+        </div>
+
+      </div>
+
+
+      <!-- Slide 4 -->
+      <div class="campus-slide">
+
+        <img
+          src="C4.png"
+          alt="College Library"
+        >
+
+        <div class="slide-content">
+          <span>Library</span>
+          <h3>Learning Resources</h3>
+          <p>
+            A resource-rich library supporting academic development.
+          </p>
+        </div>
+
+      </div>
+
+
+      <!-- Slide 5 -->
+      <div class="campus-slide">
+
+        <img
+          src="C1.png"
+          alt="College Entrance"
+        >
+        <div class="slide-content">
+          <span>Campus</span>
+          <h3>Our Beautiful Campus</h3>
+          <p>
+            A vibrant and welcoming academic environment for students.
+          </p>
+        </div>
+        
+
+      </div>
+
+
+      <!-- Slide 6 -->
+      <div class="campus-slide">
+
+        <img
+          src="C6.png"
+          alt="College Transportation"
+        >
+
+        <div class="slide-content">
+          <span>Transportation</span>
+          <h3>Student Transportation</h3>
+          <p>
+            Transportation facilities supporting student mobility.
+          </p>
+        </div>
+
+      </div>
+
+
+      <!-- Previous -->
+      <button
+        class="slide-btn slide-prev"
+        onclick="changeCampusSlide(-1)"
+        aria-label="Previous image">
+        ❮
+      </button>
+
+
+      <!-- Next -->
+      <button
+        class="slide-btn slide-next"
+        onclick="changeCampusSlide(1)"
+        aria-label="Next image">
+        ❯
+      </button>
+
+
+      <!-- Dots -->
+      <div class="slide-dots">
+
+        <span class="slide-dot active"
+              onclick="showCampusSlide(0)"></span>
+
+        <span class="slide-dot"
+              onclick="showCampusSlide(1)"></span>
+
+        <span class="slide-dot"
+              onclick="showCampusSlide(2)"></span>
+
+        <span class="slide-dot"
+              onclick="showCampusSlide(3)"></span>
+
+        <span class="slide-dot"
+              onclick="showCampusSlide(4)"></span>
+
+        <span class="slide-dot"
+              onclick="showCampusSlide(5)"></span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta reveal">
+      <div>
+        <h2>Ready to explore the world of computing?</h2>
+        <p>Discover the BCA program, student activities and opportunities.</p>
+      </div>
+      <a class="btn" href="#contact">Connect With Us →</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Get in Touch</div>
+      <h2>Contact the BCA Department</h2>
+      <p>For admissions, academic information, events and department enquiries.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-card reveal">
+        <h3>Department Office</h3>
+        <div class="contact-item"><small>ADDRESS</small><p>KLE Society's BCA Department, Gangavathi, Koppal, Karnataka</p></div>
+        <div class="contact-item"><small>PHONE</small><p>+91 7892193760</p></div>
+        <div class="contact-item"><small>EMAIL</small><p>klebcagangavati@gmail.com</p></div>
+        <div class="contact-item"><small>OFFICE HOURS</small><p>Monday – Saturday · 9:30 AM – 4:30 PM</p></div>
+      </div>
+
+      <form class="reveal" onsubmit="event.preventDefault(); alert('Thank you! Your enquiry has been recorded in this demo.');">
+        <div class="form-grid">
+          <div class="field"><label>FULL NAME</label><input required placeholder="Enter your name"></div>
+          <div class="field"><label>EMAIL</label><input type="email" required placeholder="Enter your email"></div>
+          <div class="field"><label>PHONE</label><input placeholder="Enter phone number"></div>
+          <div class="field"><label>ENQUIRY TYPE</label><select><option>Admission</option><option>Academic</option><option>Event</option><option>General</option></select></div>
+          <div class="field full"><label>MESSAGE</label><textarea placeholder="Write your enquiry..."></textarea></div>
+          <div class="field full"><button class="btn btn-primary" type="submit">Send Enquiry →</button></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="color:#fff;margin-bottom:13px"><div class="logo">BCA</div><div class="brand-text"><strong style="color:#fff">BCA Department</strong><span style="color:#cbb99e">Technology • Innovation • Excellence</span></div></div>
+        <p>Empowering students with computing knowledge, practical skills and a foundation for lifelong learning.</p>
+      </div>
+      <div><h4>Quick Links</h4><a href="#about">About Department</a><a href="#academics">Academics</a>
+      <a href="#notes">Notes</a><a href="#faculty">Faculty</a><a href="#events">Events</a></div>
+      <div><h4>Student Zone</h4><a href="#">Notices</a><a href="#">Resources</a><a href="#">Projects</a><a href="#">Placements</a></div>
+      <div><h4>Connect</h4><a href="#contact">Contact Department</a><a href="#">Admissions</a><a href="#">Gallery</a><a href="#">Location</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Department of Bachelor of Computer Applications. All Rights Reserved.</span>
+      <span>From the Desk of Mr. Vamshi Krishna B</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+ 
+
+let campusSlideIndex = 0;
+
+const campusSlides =
+  document.querySelectorAll(".campus-slide");
+
+const campusDots =
+  document.querySelectorAll(".slide-dot");
+
+
+function showCampusSlide(index) {
+
+  campusSlides.forEach(slide => {
+    slide.classList.remove("active");
+  });
+
+  campusDots.forEach(dot => {
+    dot.classList.remove("active");
+  });
+
+
+  campusSlideIndex = index;
+
+
+  campusSlides[campusSlideIndex]
+    .classList.add("active");
+
+  campusDots[campusSlideIndex]
+    .classList.add("active");
+}
+
+
+function changeCampusSlide(direction) {
+
+  campusSlideIndex += direction;
+
+
+  if (campusSlideIndex >= campusSlides.length) {
+    campusSlideIndex = 0;
+  }
+
+
+  if (campusSlideIndex < 0) {
+    campusSlideIndex =
+      campusSlides.length - 1;
+  }
+
+
+  showCampusSlide(campusSlideIndex);
+}
+
+
+/* =========================================
+   AUTOMATIC SLIDESHOW
+   CHANGE EVERY 2 SECONDS
+========================================= */
+
+setInterval(() => {
+
+  changeCampusSlide(1);
+
+}, 2000);
+
+
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
+menuToggle.addEventListener('click', () => navMenu.classList.toggle('open'));
+document.querySelectorAll('.nav-menu a').forEach(link => {
+  link.addEventListener('click', () => navMenu.classList.remove('open'));
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add('show');
+  });
+},{threshold:.12});
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+
+<script>
+/* Advanced interaction layer */
+(() => {
+  const root=document.documentElement;
+  const progress=document.getElementById('scrollProgress');
+
+  window.addEventListener('pointermove', e => {
+    root.style.setProperty('--mx', e.clientX + 'px');
+    root.style.setProperty('--my', e.clientY + 'px');
+  }, {passive:true});
+
+  const updateProgress=()=>{
+    const h=document.documentElement.scrollHeight-window.innerHeight;
+    progress.style.width=(h>0 ? (window.scrollY/h)*100 : 0)+'%';
+  };
+  window.addEventListener('scroll',updateProgress,{passive:true});
+  updateProgress();
+
+  // Subtle particle network using only emblem colors.
+  const canvas=document.getElementById('particleCanvas');
+  if(canvas){
+    const ctx=canvas.getContext('2d');
+    let particles=[];
+    const colors=['rgba(212,157,58,.75)','rgba(243,111,5,.62)','rgba(201,2,1,.48)'];
+    const resize=()=>{
+      const dpr=Math.min(window.devicePixelRatio||1,2);
+      const rect=canvas.getBoundingClientRect();
+      canvas.width=rect.width*dpr; canvas.height=rect.height*dpr;
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      particles=Array.from({length:window.innerWidth<700?28:52},()=>({
+        x:Math.random()*rect.width,y:Math.random()*rect.height,
+        vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,
+        r:Math.random()*2+0.7,c:colors[Math.floor(Math.random()*colors.length)]
+      }));
+    };
+    const draw=()=>{
+      const w=canvas.clientWidth,h=canvas.clientHeight;
+      ctx.clearRect(0,0,w,h);
+      for(const p of particles){
+        p.x+=p.vx;p.y+=p.vy;
+        if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;
+        ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle=p.c;ctx.fill();
+      }
+      for(let i=0;i<particles.length;i++){
+        for(let j=i+1;j<particles.length;j++){
+          const a=particles[i],b=particles[j];
+          const dx=a.x-b.x,dy=a.y-b.y,d=Math.hypot(dx,dy);
+          if(d<115){
+            ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
+            ctx.strokeStyle=`rgba(212,157,58,${(1-d/115)*.10})`;
+            ctx.lineWidth=.7;ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    };
+    resize(); window.addEventListener('resize',resize); draw();
+  }
+
+  // Lightweight 3D tilt on cards.
+  document.querySelectorAll('.card,.event-main,.cta').forEach(card=>{
+    card.addEventListener('pointermove',e=>{
+      if(window.innerWidth<900)return;
+      const r=card.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-.5;
+      const y=(e.clientY-r.top)/r.height-.5;
+      card.style.transform=`perspective(900px) rotateX(${(-y*2).toFixed(2)}deg) rotateY(${(x*2).toFixed(2)}deg) translateY(-8px)`;
+    });
+    card.addEventListener('pointerleave',()=>{card.style.transform='';});
+  });
+
+  // Count-up statistics.
+  const counters=document.querySelectorAll('.stat strong');
+  const countObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting)return;
+      const el=entry.target;
+      if(el.dataset.done)return;
+      el.dataset.done='1';
+      const original=el.textContent.trim();
+      const match=original.match(/(\d+)/);
+      if(!match)return;
+      const target=parseInt(match[1],10), suffix=original.replace(match[1],'');
+      let start=0; const duration=1000; const t0=performance.now();
+      const tick=now=>{
+        const p=Math.min((now-t0)/duration,1);
+        const eased=1-Math.pow(1-p,3);
+        el.textContent=Math.round(target*eased)+suffix;
+        if(p<1)requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+  },{threshold:.65});
+  counters.forEach(c=>countObserver.observe(c));
+})();
+</script>
+
+
+<script>
+/* =========================================================
+   Notes hub: semester tabs + subject search
+   ========================================================= */
+(() => {
+  const tabs = [...document.querySelectorAll('.semester-tab')];
+  const panels = [...document.querySelectorAll('.semester-panel')];
+  const search = document.getElementById('notesSearch');
+  const count = document.getElementById('notesCount');
+
+  function refreshCount(panel) {
+    const visible = [...panel.querySelectorAll('.subject-card')].filter(card => card.style.display !== 'none').length;
+    count.textContent = visible + (visible === 1 ? ' Subject' : ' Subjects');
+  }
+
+  function activate(id) {
+    tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.semester === id));
+    panels.forEach(panel => panel.classList.toggle('active', panel.id === id));
+    if (search) search.value = '';
+    const activePanel = document.getElementById(id);
+    if (activePanel) {
+      activePanel.querySelectorAll('.subject-card').forEach(card => card.style.display = '');
+      refreshCount(activePanel);
+    }
+  }
+
+  tabs.forEach(tab => tab.addEventListener('click', () => activate(tab.dataset.semester)));
+
+  if (search) {
+    search.addEventListener('input', () => {
+      const activePanel = panels.find(panel => panel.classList.contains('active'));
+      if (!activePanel) return;
+      const term = search.value.trim().toLowerCase();
+      const cards = [...activePanel.querySelectorAll('.subject-card')];
+      cards.forEach(card => {
+        card.style.display = card.textContent.toLowerCase().includes(term) ? '' : 'none';
+      });
+      refreshCount(activePanel);
+    });
+  }
+
+  const first = document.querySelector('.semester-panel.active');
+  if (first) refreshCount(first);
+})();
+</script>
+
+</body>
+</html>
